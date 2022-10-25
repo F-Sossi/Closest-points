@@ -1,6 +1,7 @@
 // Closest Points.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -29,7 +30,7 @@ double distance(Point a, Point b) {
 }
 
 void print_min(double min, int index1, int index2) {
-	std::cout << "D[" << index1 << "," << index2 << "]: " << min << std::endl;
+	std::cout << "D[" << index1 << "," << index2 << "]: " << std::fixed << std::setprecision(4) << min << std::endl;
 }
 
 // Recusive function to find the closest pair of points
