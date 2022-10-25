@@ -44,10 +44,7 @@ double closest_pair(std::vector<Point> points, int n) {
 		for (int i = 0; i < n; i++) {
 			for (int j = i + 1; j < n; j++) {
 				if (distance(points[i], points[j]) < min) {
-					min = distance(points[i], points[j]);
-					//index1 = points[i].index;
-					//index2 = points[j].index;
-				}
+					min = distance(points[i], points[j]				}
 			}
 		}
 		print_min(min, index1, index2);
@@ -132,7 +129,7 @@ int main()
 	for (auto i = 0; i < n; i++) {
 		points[i].index = i;
 	}
-
+/*
 	std::cout << "Sorted \n" << std::endl;
 	//print points
 	for (auto i = 0; i < n; i++) {
@@ -148,6 +145,8 @@ int main()
 	}
 
 	std::cout << "\n alg output \n" << std::endl;
+
+*/
 	// Find closest pair using closest_pair
 	double min{0};
 	min = closest_pair(points, n);
