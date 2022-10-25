@@ -127,7 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Nearest Points.cpp" />
+    <ClCompile Include="Main_Prog2_Frank_Sossi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Closest_points_Frank_Sossi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
