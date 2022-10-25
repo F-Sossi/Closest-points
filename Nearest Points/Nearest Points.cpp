@@ -50,8 +50,6 @@ double closest_pair(std::vector<Point> points, int n) {
 			}
 		}
 		print_min(min, index1, index2);
-		//index1 = 0;
-		//index2 = 0;
 		return min;
 	}
 
@@ -94,15 +92,11 @@ double closest_pair(std::vector<Point> points, int n) {
 		for (int j = i + 1; j < strip.size() && (strip[j].y - strip[i].y) < min; j++) {
 			if (distance(strip[i], strip[j]) < min) {
 				min = distance(strip[i], strip[j]);
-				//index1 = strip[i].index;
-				//index2 = strip[j].index;
 			}
 		}
 	}
 
 	print_min(min, index1, index2);
-	//index1 = 0;
-	//index2 = 0;
 	return min;
 }
 
@@ -130,8 +124,6 @@ int main()
 		inputFile >> points[i].x >> points[i].y;
 	}
 
-
-
 	// Sort points by x value
 	std::sort(points.begin(), points.end(), x_compare);
 
@@ -156,16 +148,8 @@ int main()
 
 	std::cout << "\n alg output \n" << std::endl;
 	// Find closest pair using closest_pair
-	double min{ 0 };
-	//min = closest_pair2(points, 0, (n-1));
+	double min{0};
 	min = closest_pair(points, n);
-
-	// Print the min
-	//std::cout << min << std::endl;
-
-
-	// Close file
-	//inputFile.close();
-
+	
 	return 0;
 }
