@@ -28,10 +28,13 @@ void print_min(double min, int index1, int index2) {
 
 // Recusive function to find the closest pair of points
 double closest_pair(std::vector<Point> points, int size) {
-	auto length = size - 1;
+	
+	// set up variables to track the range of indices being examined
+	auto last = size - 1;
 	auto index1 = points[0].index;
-	auto index2 = points[length].index;
-	// Base case
+	auto index2 = points[last].index;
+	
+	// Base case less than 3 points to compare
 	if (size <= 3) {
 		double min = DBL_MAX;
 		for (int i = 0; i < size; i++) {
@@ -49,7 +52,7 @@ double closest_pair(std::vector<Point> points, int size) {
 	int mid = size / 2;
 	Point mid_point = points[mid];
 
-	// Divide the points into two halves
+	// Divide the array into to halves 
 	std::vector<Point> left;
 	std::vector<Point> right;
 	for (int i = 0; i < size; i++) {
@@ -61,14 +64,14 @@ double closest_pair(std::vector<Point> points, int size) {
 		}
 	}
 
-	// Find the closest pair of points in the left and right halves
+	// Recurse on the left and right array 
 	double min_left = closest_pair(left, mid);
 	double right_min = closest_pair(right, size - mid);
 
 	// Find the minimum of the two
 	double min = min_left < right_min ? min_left : right_min;
 
-	// Create a strip of points around the middle point
+	// Create a strip of points around the middle dividing line
 	std::vector<Point> strip;
 	for (int i = 0; i < size; i++) {
 		if (abs(points[i].x - mid_point.x) < min) {
@@ -79,7 +82,7 @@ double closest_pair(std::vector<Point> points, int size) {
 	// Sort the strip by y coordinate
 	std::sort(strip.begin(), strip.end(), y_compare);
 
-	// Find the closest pair of points in the strip
+	// Find the closest pair of points in the strip should only loop 6 times max
 	for (int i = 0; i < strip.size(); i++) {
 		for (int j = i + 1; j < strip.size() && (strip[j].y - strip[i].y) < min; j++) {
 			if (distance(strip[i], strip[j]) < min) {
