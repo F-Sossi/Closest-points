@@ -27,15 +27,15 @@ void print_min(double min, int index1, int index2) {
 }
 
 // Recusive function to find the closest pair of points
-double closest_pair(std::vector<Point> points, int n) {
-	auto length = n - 1;
+double closest_pair(std::vector<Point> points, int size) {
+	auto length = size - 1;
 	auto index1 = points[0].index;
 	auto index2 = points[length].index;
 	// Base case
-	if (n <= 3) {
+	if (size <= 3) {
 		double min = DBL_MAX;
-		for (int i = 0; i < n; i++) {
-			for (int j = i + 1; j < n; j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = i + 1; j < size; j++) {
 				if (distance(points[i], points[j]) < min) {
 					min = distance(points[i], points[j]);
 				}
@@ -46,13 +46,13 @@ double closest_pair(std::vector<Point> points, int n) {
 	}
 
 	// Find the middle point
-	int mid = n / 2;
+	int mid = size / 2;
 	Point mid_point = points[mid];
 
 	// Divide the points into two halves
 	std::vector<Point> left;
 	std::vector<Point> right;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < size; i++) {
 		if (i < mid) {
 			left.push_back(points[i]);
 		}
@@ -63,14 +63,14 @@ double closest_pair(std::vector<Point> points, int n) {
 
 	// Find the closest pair of points in the left and right halves
 	double min_left = closest_pair(left, mid);
-	double right_min = closest_pair(right, n - mid);
+	double right_min = closest_pair(right, size - mid);
 
 	// Find the minimum of the two
 	double min = min_left < right_min ? min_left : right_min;
 
 	// Create a strip of points around the middle point
 	std::vector<Point> strip;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < size; i++) {
 		if (abs(points[i].x - mid_point.x) < min) {
 			strip.push_back(points[i]);
 		}

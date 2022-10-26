@@ -12,7 +12,7 @@
 
 int main()
 {
-	auto n = 0;
+	auto size = 0;
 
 	// Open file program1data.txt for reading
 	std::ifstream inputFile("program2data.txt");
@@ -24,13 +24,13 @@ int main()
 	}
 
 	// Read number of points
-	inputFile >> n;
+	inputFile >> size;
 
 	// Create vector of points
-	std::vector<Point> points(n);
+	std::vector<Point> points(size);
 
 	// Read points from file
-	for (auto i = 0; i < n; i++) {
+	for (auto i = 0; i < size; i++) {
 		inputFile >> points[i].x >> points[i].y;
 	}
 
@@ -38,7 +38,7 @@ int main()
 	std::sort(points.begin(), points.end(), x_compare);
 
 	// set index of the points
-	for (auto i = 0; i < n; i++) {
+	for (auto i = 0; i < size; i++) {
 		points[i].index = i;
 	}
 /*
@@ -61,7 +61,7 @@ int main()
 */
 	// Find closest pair using closest_pair
 	double min{0};
-	min = closest_pair(points, n);
+	min = closest_pair(points, size);
 	
 	return 0;
 }
