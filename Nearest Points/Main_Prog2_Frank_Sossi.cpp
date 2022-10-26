@@ -43,7 +43,7 @@ int main()
 	}
 /*
 	std::cout << "Sorted \n" << std::endl;
-	//print points
+	//print points edit for testing
 	for (auto i = 0; i < n; i++) {
 		std::cout << points[i].x << " " << points[i].y << " " << points[i].index << std::endl;
 	}
