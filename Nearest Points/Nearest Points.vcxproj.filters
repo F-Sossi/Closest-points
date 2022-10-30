@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Closest_points_Frank_Sossi.h">
+    <ClInclude Include="..\..\..\Closest_points_Frank_Sossi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

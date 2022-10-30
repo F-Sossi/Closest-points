@@ -15,7 +15,7 @@ int main()
 	auto size = 0;
 
 	// Open file program1data.txt for reading
-	std::ifstream inputFile("program2data2.txt");
+	std::ifstream inputFile("program2data.txt");
 
 
 	// Check if file opened successfully
